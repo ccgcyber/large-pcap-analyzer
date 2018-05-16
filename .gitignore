@@ -1,0 +1,16 @@
+src/*.o
+.cproject
+.project
+autom4te.cache/
+config.log
+config.status
+large_pcap_analyzer
+src/.deps/
+src/.dirstamp
+Makefile
+*.snap
+*.tar.bz2
+latest
+parts/
+prime/
+snap/.snapcraft/
