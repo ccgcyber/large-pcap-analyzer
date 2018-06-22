@@ -1,5 +1,5 @@
     name: large-pcap-analyzer
-    version: 3.4.3
+    version: 3.5.1
     summary: Command-line utility to process .PCAP files very quickly.
     description: |
         Large PCAP file analyzer is a command-line utility program that performs some simple operations
@@ -8,18 +8,19 @@
 
     grade: stable
 
-    # NOTE: confinement 'strict' cannot be used for this utility since it needs read permissions
-    #       anywhere in the filesystem. 'classic' confinement is better.
-    confinement: classic
+    confinement: strict
 
     apps:
+        # NOTE: even though the software binary is using underscores (large_pcap_analyzer), the snapcraft
+        #       tool REQUIRES the use of dashes in place of underscores
         large-pcap-analyzer:
             command: large_pcap_analyzer
+            plugs: [ home, removable-media ]
 
     parts:
         large-pcap-analyzer:
             plugin: autotools
-            source: https://github.com/f18m/large-pcap-analyzer/archive/3.4.3.tar.gz
+            source: https://github.com/f18m/large-pcap-analyzer/archive/3.5.1.tar.gz
             build-packages:
                 - g++
                 - make
